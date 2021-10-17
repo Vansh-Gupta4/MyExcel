@@ -6,11 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
-    <div class="menu-container"></div>
+    <div class="menu-container">
+           
+        <select class="font-size">  
+          <option value="12">12</option>
+          <option value="16" selected>16</option>
+          <option value="20">20</option>
+          <option value="32">32</option>
+      </select>
 
-    <div class="formula-container"></div>
+      <!-- font family -->
+      <select class="font-family">
+          <option value="monospace">monospace</option>
+          <option value="sans-serif" selected>sans-serif</option>
+          <option value="Georgia">Georgia</option>
+          <option value="fantasy">fantasy</option>
+      </select>
+
+      <!-- Bold ,italic ,underline -->
+      <div class="bui-container">
+          <input type="button" class="bold" value="B">
+          <input type="button" class="underline" value="U">
+          <input type="button" class="italic" value="I">
+      </div>
+
+      <!--alignmnet -->
+      <div class="align-container">
+          <input type="button" class="left" value="L">
+          <input type="button" class="center" value="C">
+          <input type="button" class="right" value="R">
+      </div>
+
+      <!--color -->
+      <div class="color-container">
+          <input type="color" class="color">   <!--for text color-->
+          <input type="color" class="bg-color"> <!--for background color-->
+      </div>
+
+    </div>
+
+    <div class="formula-container">
+      <input type="text" class="address-input" readonly>
+      <input type="text" class="formula-input">
+    </div>
 
     <div class="grid-container">
       <div class="left_box box"></div>

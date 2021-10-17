@@ -4,56 +4,110 @@
 body {
    margin: 0px;
 }
+
+
+
+/********menu container********/
 .menu-container {
    /* border: 1px solid red; */
    height: 3rem;
    background-color: lightpink;
-  
+   align-items: center;
+   display: flex;
+   gap:0.5rem;   /*sab element ke beech mai space de dega*/
+   padding-left:0.5rem;
+}
+.menu-container *{
+   border: 1px solid;
+   height:60%;
+}
+.font-size{
+   width:5%;
+}
+.font-family{
+   width:21%;
+}
+.bui-container{
+   width:21%;
+   display:flex;
+   justify-content:space-around;
+   align-items:center;
+}
+.bui-container>* {
+   width:30%;
+   height:80%;
+   text-align: center;
+}
+.align-container{
+   min-width:14%;
+}
+.color-container{
+   min-width:10%;
 }
 
+
+
+
+/*************formula container************/
 .formula-container {
    /* border: 1px solid red; */
    height: 2rem;
-   background-color: lightcoral;
-
-  
+   /* background-color: lightcoral; */
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+.formula-container>*{  /*formula-container ke andar jo bhi h sab ke liye*/
+   height: 70%;
+}
+.address-input{
+   width:4rem;
+   }
+.formula-input{
+    width:calc(100vw - 6rem);
 }
 
+
+
+
+
+
+
+/* ****************grid ****************/
 .grid-container {
+   position: relative;    /*TRICK==humme top-row ki position absolute grid-container ke hisaab se deni thi toh grid container ko relative dedo and top row ko absolute*/
    border: 1px solid red;
    height: 
-   calc( 100vh - ( 3rem + 2rem + 2rem));    /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi hieght dedi*/
+   calc( 100vh - ( 3rem + 2rem + 2rem));    /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi height dedi*/
    background-color: lightgreen;
    overflow: auto;
    
 }
-.box{
-   height: 2rem;
-   width:2rem;
-   border:1px solid;
-   text-align: center;
-}
+
 .left_box{
    background-color:gray;
 }
 .top_row{
-   /* left: 2rem;
+   left: 2rem;
    top: 0rem;
-   position: absolute; */
+   position: absolute;
    height:2rem;
   /* background-color:green; */
   display:flex;
 }
 .grid{
    /* height:2rem; */
-   background-color:lightblue; 
+   /* background-color:lightblue;  */
+   left: 2rem;
+   top: 2rem;
+   position: absolute;
    
 }
 .cell{
    border: 1px solid;
    min-width: 5rem;
    text-align: center;
-   /* height:2rem; */
+   height:2rem;
 }
 .row{
    display: flex;
@@ -62,7 +116,7 @@ body {
 
 
 
-/* sheets */
+/* /////////////////sheets/////////////////////// */
 .sheets-container {
    /* border: 1px solid red; */
    background-color: lightblue;
@@ -93,7 +147,6 @@ body {
    scrollbar-width: none;  /* Firefox */
  }
 
-
 .sheet{
    min-width: 5rem;
    border: 1px solid blue;
@@ -102,4 +155,10 @@ body {
 }
 .active{
    background-color:white;
+}
+.box{
+   height: 2rem;
+   width:2rem;
+   border:1px solid;
+   text-align: center;
 }
