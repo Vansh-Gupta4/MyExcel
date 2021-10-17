@@ -162,3 +162,12 @@ body {
    border:1px solid;
    text-align: center;
 }
+.active-btn{
+   background-color:red;
+}
+
+
+/* new open save */
+.nos-container>*{
+   border:none;
+}

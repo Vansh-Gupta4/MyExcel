@@ -6,6 +6,8 @@ let addressInput = document.querySelector(".address-input"); // it gives current
 let boldBtn = document.querySelector(".bold");
 let underlineBtn = document.querySelector(".underline");
 let italicBtn = document.querySelector(".italic");
+let alignBtns = document.querySelectorAll(".align-container>*");
+let fontSizeElem = document.querySelector(".font-size");
 
 let rows = 100;
 let cols = 26;
@@ -39,6 +41,26 @@ for (let i = 0; i < rows; i++) {   // for making grid
 }
 
 
+let sheetDB = [];   //sheet-databse is 2D aaray
+for (let i = 0; i < rows; i++) {
+    let row = [];
+    for (let j = 0; j < cols; j++) {
+        let cell = {    //starting mai initial properties daal diye obj mai
+            bold: "normal",
+            italic: "normal",
+            underline: "none",
+            hAlign: "center",
+            fontFamily: "sans-serif",
+            fontSize: "16",
+            color: "black",
+            bColor: "none"
+        }
+        row.push(cell);
+    }
+    sheetDB.push(row);
+}
+
+
 
 let allCells = document.querySelectorAll(".grid .cell");  //".querySelectorAll(".grid .cell")" top par isliye nhi kiya kyuki tab grid cells nhi bane thai...agar tab karte toh error de deta 
 for (let i = 0; i < allCells.length; i++) {
@@ -56,23 +78,103 @@ for (let i = 0; i < allCells.length; i++) {
         
         addressInput.value = address;   //address input mai address chala gya
 
+    //3rd Lec code(yeh tab chalega jab jab humm kisi ek cell ko bold/italic/underline ki property de then menu container mai uss btn ka color change ho jaaye and fir hum dusre cell par click kare jis par voh property nhi lagi ,usse menu container mai uss btn ka color wapas normal ho jaaye )    
+        let cellObject = sheetDB[rid][cid];
+        // toolbar cell sync 
+        if (cellObject.bold == "normal") {
+            boldBtn.classList.remove("active-btn");
+        } else {
+            boldBtn.classList.add("active-btn");
+        }
+
+        if (cellObject.underline == "none") {
+            underlineBtn.classList.remove("active-btn");
+        } else {
+            underlineBtn.classList.add("active-btn");
+        }
+
+        if (cellObject.italic == "normal") {
+            italicBtn.classList.remove("active-btn");
+        } else {
+            italicBtn.classList.add("active-btn");
+        }
+
+
    })
 }
 allCells[0].click();  //by-default address-input A1 ka address dikha rha hoga
 
 
 
+// *********formatting******
+// Horizontal alignment
+for (let i = 0; i < alignBtns.length; i++) {   //agar hum align button par click karenge toh chalega 
+   alignBtns[i].addEventListener("click", function () {
+       let alignment = alignBtns[i].getAttribute("class");
+       let uiCellElement = findUICellElement();
+       uiCellElement.style.textAlign = alignment;
+   })
+}
+
+// font-size
+fontSizeElem.addEventListener("change", function () {   //agar hum font size change karenge toh yeh chalega
+   let val = fontSizeElem.value;
+   let uiCellElement = findUICellElement();
+   uiCellElement.style.fontSize = val + "px";
+})
+
+
+
 boldBtn.addEventListener("click", function () {// Jis bhi cell par click kare voh bold ho jaaye
    let uiCellElement=findUICellElement();
-   uiCellElement.style.fontWeight="bold";
+
+   let cid = uiCellElement.getAttribute("cid");
+    let rid = uiCellElement.getAttribute("rid");
+    let cellObject = sheetDB[rid][cid];
+    if (cellObject.bold == "normal") {
+        uiCellElement.style.fontWeight = "bold";  //cell ke UI mai change kiya
+        boldBtn.classList.add("active-btn");  //boldbtn(i.e in menu container)  ke UI mai change kiya
+        cellObject.bold = "bold";   //Obj mai change kiya
+    } else {
+        boldBtn.classList.remove("active-btn");
+        uiCellElement.style.fontWeight = "normal";
+        cellObject.bold = "normal";
+    }
 })
+
 underlineBtn.addEventListener("click", function () {// Jis bhi cell par click kare voh bold ho jaaye
    let uiCellElement=findUICellElement();
-   uiCellElement.style.textDecoration="underline";
+  
+   let cid = uiCellElement.getAttribute("cid");
+   let rid = uiCellElement.getAttribute("rid");
+   let cellObject = sheetDB[rid][cid];
+   if (cellObject.underline == "none") {
+       uiCellElement.style.textDecoration = "underline"; //cell ke UI mai change kiya
+       underlineBtn.classList.add("active-btn"); //underlineBtn(i.e in menu container)  ke UI mai change kiya
+       cellObject.underline = "underline";//Obj mai change kiya
+   } else {
+       underlineBtn.classList.remove("active-btn");
+       uiCellElement.style.textDecoration = "none";
+       cellObject.underline = "none"; 
+   }
 })
+
 italicBtn.addEventListener("click", function () {// Jis bhi cell par click kare voh bold ho jaaye
    let uiCellElement=findUICellElement();
-   uiCellElement.style.fontStyle="italic";
+   
+   let cid = uiCellElement.getAttribute("cid");
+    let rid = uiCellElement.getAttribute("rid");
+    let cellObject = sheetDB[rid][cid];
+    if (cellObject.italic == "normal") {
+        uiCellElement.style.fontStyle = "italic";//cell ke UI mai change kiya
+        italicBtn.classList.add("active-btn"); //italicBtn(i.e. in menu container)  ke UI mai change kiya
+        cellObject.italic = "italic";  //Obj mai change kiya
+    } else {
+        italicBtn.classList.remove("active-btn");
+        uiCellElement.style.fontStyle = "normal";
+        cellObject.italic = "normal";
+    }
+
 })
 
 
