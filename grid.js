@@ -8,9 +8,11 @@ let underlineBtn = document.querySelector(".underline");
 let italicBtn = document.querySelector(".italic");
 let alignBtns = document.querySelectorAll(".align-container>*");
 let fontSizeElem = document.querySelector(".font-size");
+let formulaBar=document.querySelector(".formula-input");
 
 let rows = 100;
 let cols = 26;
+
 
 for (let i = 0; i < rows; i++) {   //create 100 rows
    let colBox = document.createElement("div");  
@@ -53,7 +55,10 @@ for (let i = 0; i < rows; i++) {
             fontFamily: "sans-serif",
             fontSize: "16",
             color: "black",
-            bColor: "none"
+            bColor: "none",
+            value:"",
+            formula:"",
+            children:[]
         }
         row.push(cell);
     }
@@ -128,6 +133,7 @@ fontSizeElem.addEventListener("change", function () {   //agar hum font size cha
 boldBtn.addEventListener("click", function () {// Jis bhi cell par click kare voh bold ho jaaye
    let uiCellElement=findUICellElement();
 
+
    let cid = uiCellElement.getAttribute("cid");
     let rid = uiCellElement.getAttribute("rid");
     let cellObject = sheetDB[rid][cid];
@@ -145,6 +151,7 @@ boldBtn.addEventListener("click", function () {// Jis bhi cell par click kare vo
 underlineBtn.addEventListener("click", function () {// Jis bhi cell par click kare voh bold ho jaaye
    let uiCellElement=findUICellElement();
   
+   
    let cid = uiCellElement.getAttribute("cid");
    let rid = uiCellElement.getAttribute("rid");
    let cellObject = sheetDB[rid][cid];
