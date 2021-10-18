@@ -18,7 +18,7 @@ body {
    padding-left:0.5rem;
 }
 .menu-container *{
-   border: 1px solid;
+   border-right:2px solid;
    height:60%;
 }
 .font-size{
@@ -32,19 +32,36 @@ body {
    display:flex;
    justify-content:space-around;
    align-items:center;
+   padding-right: 20px;
 }
 .bui-container>* {
    width:30%;
    height:80%;
    text-align: center;
+   border-radius: 5px;
 }
 .align-container{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
    min-width:14%;
 }
-.color-container{
-   min-width:10%;
+.align-container>*{
+   width:25%;
+   height: 80%;
+   border-radius: 5px;
 }
 
+.color-container{
+   min-width:10%;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+.color-container>*{
+   width:35%;
+   height: 70%;
+}
 
 
 
@@ -74,44 +91,68 @@ body {
 
 
 /* ****************grid ****************/
-.grid-container {
-   position: relative;    /*TRICK==humme top-row ki position absolute grid-container ke hisaab se deni thi toh grid container ko relative dedo and top row ko absolute*/
-   border: 1px solid red;
-   height: 
-   calc( 100vh - ( 3rem + 2rem + 2rem));    /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi height dedi*/
-   background-color: lightgreen;
-   overflow: auto;
-   
-}
 
-.left_box{
+
+.left-box{
    background-color:gray;
-}
-.top_row{
-   left: 2rem;
-   top: 0rem;
+   height: 30px;
+   width: 25px;
    position: absolute;
+   top:0px;
+   left:0px;
+   z-index:100;
+}
+.top-row{
    height:2rem;
-  /* background-color:green; */
+  background-color:lightgreen;
   display:flex;
-}
-.grid{
-   /* height:2rem; */
-   /* background-color:lightblue;  */
-   left: 2rem;
-   top: 2rem;
-   position: absolute;
-   
-}
-.cell{
-   border: 1px solid;
-   min-width: 5rem;
-   text-align: center;
-   height:2rem;
+  position: absolute;
+  top: 0px;
+  left: 32px;
+  z-index:90;
 }
 .row{
    display: flex;
 }
+.cell{
+   border: 1px solid;
+   min-width: 5rem;
+   min-height: 32px;
+   text-align: center;
+   height:2rem;
+}
+.left-col {
+   width: 32px;
+   position: absolute;
+   top:32px;
+   left:0px;
+   z-index:90;
+}
+.left-col_box {
+   height: 32px;
+   background-color: lightgreen;
+   text-align: center;
+   border: 1px solid;
+}
+
+
+.grid-container {
+  
+   border: 1px solid red;
+   height: 
+   calc( 100vh - ( 3rem + 2rem + 2rem));    /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi height dedi*/
+   /* background-color: lightgreen; */
+   overflow: auto;
+   position: relative;    /*TRICK==humme top-row ki position absolute grid-container ke hisaab se deni thi toh grid container ko relative dedo and top row ko absolute*/
+   
+}
+.grid{
+   position: absolute;
+   left: 2rem;
+   top: 2rem;
+   background-color: white;
+}
+
 
 
 
@@ -156,6 +197,11 @@ body {
 .active{
    background-color:white;
 }
+
+
+
+
+
 .box{
    height: 2rem;
    width:2rem;
@@ -163,11 +209,27 @@ body {
    text-align: center;
 }
 .active-btn{
-   background-color:red;
+   background-color:rgb(140, 108, 108);
 }
 
 
 /* new open save */
+.nos-container{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   width: 10rem;
+}
+.open{
+   border-right: none;
+}
+.open>input {
+   display: none;
+ }
+ 
 .nos-container>*{
    border:none;
+}
+.material-icons-outlined {
+   border: none;
 }
