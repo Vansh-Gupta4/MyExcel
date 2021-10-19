@@ -5,11 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EXCEL Clone</title>
-    <link rel="stylesheet" href="style.css" />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+    crossorigin="anonymous"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap"
+    rel="stylesheet"
+  />
   </head>
   <body>
     <div class="menu-container">
@@ -32,44 +55,41 @@
 
       <!-- Bold ,italic ,underline -->
       <div class="bui-container">
-        <input type="button" class="bold" value="B" />
-        <input type="button" class="underline" value="U" />
-        <input type="button" class="italic" value="I" />
+        <i class="fas fa-bold bold"></i>
+        <i class="fas fa-underline underline"></i>
+        <i class="fas fa-italic italic"></i>
       </div>
 
       <!--alignmnet -->
       <div class="align-container">
-        <input type="button" class="left" value="L" />
-        <input type="button" class="center" value="C" />
-        <input type="button" class="right" value="R" />
+        <div class="left" style="display: flex; align-items: center; width: 2rem; height:80%; background-color: rgb(223, 230, 233); justify-content: center; border-radius: 2px;">
+          <i class="fas fa-align-left" style="border: none; "></i>
+        </div>
+        <div class="center" style="display: flex; align-items: center; width: 2rem; height:80%; background-color: rgb(223, 230, 233);justify-content: center; border-radius: 2px;">
+          <i class="fas fa-align-center" style="border: none; "></i>
+        </div>
+        <div class="right" style="display: flex; align-items: center; width: 2rem; height:80%; background-color: rgb(223, 230, 233);justify-content: center; border-radius: 2px;">
+          <i class="fas fa-align-right" style="border: none; "></i>
+        </div>
       </div>
 
       <!--color -->
       <div class="color-container">
-        <input type="color" class="color" />
-        <!--for text color-->
-        <input type="color" class="bg-color" />
-        <!--for background color-->
+        <i class="fas fa-palette color">
+          <input type="color" class="color" value="#000000" />
+        </i>
+        <i class="fas fa-fill-drip background-color">
+          <input type="color" class="bg-color" value="#000000" />
+        </i>
       </div>
 
       <!-- new open save -->
       <div class="nos-container">
-
-        <!-- new -->
         <span class="material-icons-outlined material-icons new">
           add_circle_outline
         </span>
-        
-        <!-- open -->
-        <span class="material-icons-outlined material-icons">
-          folder_open
-        </span>
-        <input type="file" name="" class="open" />
-
-        <!-- save -->
-        <span class="material-icons-outlined material-icons save">
-          file_download
-        </span>
+        <i class="fas fa-folder-open open"></i>
+        <i class="fas fa-file-download download"></i>
       </div>
     </div>
 
@@ -79,9 +99,9 @@
     </div>
 
     <div class="grid-container">
-      <div class="left_box box"></div>
-      <div class="top_row"><!-- 26 rows --></div>
-      <div class="left_col"></div>
+      <div class="left-box box"></div>
+      <div class="top-row"><!-- 26 rows --></div>
+      <div class="left-col"></div>
       <!-- 100 cols -->
       <div class="grid">
         <!-- therefore, grid=100*26 -->
@@ -89,7 +109,7 @@
     </div>
 
     <div class="sheets-container">
-      <div class="add-sheet_btn-container">add</div>
+      <div class="add-sheet_btn-container">ADD</div>
       <div class="sheet-list">
         <div class="sheet active" idx="0">Sheet 1</div>
       </div>
@@ -99,5 +119,6 @@
     <script src="infix.js"></script>
     <script src="newOpenSave.js"></script>
     <script src="formula.js"></script>
+
   </body>
 </html>

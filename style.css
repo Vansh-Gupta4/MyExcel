@@ -18,51 +18,71 @@ body {
    padding-left:0.5rem;
 }
 .menu-container *{
-   border-right:2px solid;
-   height:60%;
+   border: 1px solid;
+   height:80%;
+   border-radius: 5px;
 }
 .font-size{
    width:5%;
 }
 .font-family{
-   width:21%;
-}
-.bui-container{
-   width:21%;
-   display:flex;
-   justify-content:space-around;
-   align-items:center;
-   padding-right: 20px;
-}
-.bui-container>* {
-   width:30%;
-   height:80%;
-   text-align: center;
-   border-radius: 5px;
-}
-.align-container{
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
-   min-width:14%;
-}
-.align-container>*{
-   width:25%;
+   width:15%;
    height: 80%;
    border-radius: 5px;
 }
-
-.color-container{
-   min-width:10%;
+.bui-container{
+   height: 80%;
+   min-width: 10rem;
    display: flex;
-   justify-content: space-evenly;
+   justify-content: space-around;
    align-items: center;
 }
-.color-container>*{
-   width:35%;
-   height: 70%;
+.bui-container>* {
+   width: 30%;
+   height: 80%;
+   border-radius: 3px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgb(223, 230, 233);
+}
+.align-container{
+   display: flex;
+   justify-content: space-around;
+   height: 80%;
+   min-width: 10rem;
+   align-items: center;
 }
 
+.color-container{
+   height: 80%;
+   min-width: 7.5rem;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.color-container > i {
+   position: relative;
+   width: 41%;
+   height: 80%;
+   font-size: x-large;
+   border-radius: 3px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgb(223, 230, 233);
+   border-radius: 3px;
+}
+.color-container > i:hover {
+   background-color: rgb(178, 190, 195);
+}
+
+.color-container input {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   opacity: 0.01;
+}
 
 
 /*************formula container************/
@@ -116,10 +136,11 @@ body {
 }
 .cell{
    border: 1px solid;
-   min-width: 5rem;
-   min-height: 32px;
+   max-width: 5rem;
+   width: 5rem;
    text-align: center;
    height:2rem;
+   overflow: hidden;
 }
 .left-col {
    width: 32px;
@@ -137,14 +158,14 @@ body {
 
 
 .grid-container {
-  
+
    border: 1px solid red;
    height: 
    calc( 100vh - ( 3rem + 2rem + 2rem));    /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi height dedi*/
    /* background-color: lightgreen; */
    overflow: auto;
    position: relative;    /*TRICK==humme top-row ki position absolute grid-container ke hisaab se deni thi toh grid container ko relative dedo and top row ko absolute*/
-   
+
 }
 .grid{
    position: absolute;
@@ -214,22 +235,26 @@ body {
 
 
 /* new open save */
-.nos-container{
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
+.nos-container {
+   height: 80%;
+   min-width: 7.5rem;
    width: 10rem;
+   /* border: 1px solid; */
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
 }
-.open{
-   border-right: none;
+
+.nos-container > * {
+   width: 30%;
+   height: 80%;
+   border-radius: 3px;
+   background-color: rgb(223, 230, 233);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: x-large;
 }
-.open>input {
-   display: none;
- }
- 
-.nos-container>*{
-   border:none;
-}
-.material-icons-outlined {
-   border: none;
+.nos-container > *:hover {
+   background-color: rgb(178, 190, 195);
 }

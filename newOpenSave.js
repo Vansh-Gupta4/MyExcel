@@ -1,47 +1,85 @@
+let newFile = document.querySelector(".new");
+let openFile = document.querySelector(".open");
+let saveFile = document.querySelector(".download");
 
-let save = document.querySelector(".save");
-let open = document.querySelector(".open");
+saveFile.addEventListener("click", function () {
+  // Download file
+  let totalSheets = document.querySelectorAll(".sheet");
+  let activeSheet;
+  for (let i = 0; i < totalSheets.length; i++) {
+    // Make newly added sheet tab active
+    if (totalSheets[i].classList.contains("active")) {
+      activeSheet = i + 1;
+      break;
+    }
+  }
 
-save.addEventListener("click", function () {   // functionality -> download excel representation(excel is represented by 2d array..therefore pura 2d array ko save karna h ek file mai)
-  
+  let jsonData = JSON.stringify(sheetDB);
+  let file = new Blob([jsonData], { type: "application/json" }); // Convert to file like object
+  let fileURL = URL.createObjectURL(file); // Convert to URL for anchor href
 
-    const data = JSON.stringify(sheetDB);
+  let a = document.createElement("a");
+  a.href = fileURL;
+  a.download = `Sheet${activeSheet}.json`; // Download attribute with filename
+  a.click();
+});
 
-    // now convert data into blob
-    const blob = new Blob([data], { type: 'application/json' });// data ko file like object mai convert
-    
-    const url = window.URL.createObjectURL(blob);// convert it any type file into url
-    let a = document.createElement("a");
-    // content in that file
-    a.href = url;
-    
-    a.download = "file.json";// file download as file.son
-// anchor click
-    a.click();
-})
+openFile.addEventListener("click", function () {
+  // Open file
+  let inputFile = document.createElement("input");
+  inputFile.type = "file";
+  inputFile.click();
 
+  inputFile.addEventListener("change", function () {
+    let fr = new FileReader(); // Let's read file content asynchronously
 
+    let allFiles = inputFile.files; // List of all files
+    let fileObj = allFiles[0]; // First file of list
 
-// input type file hoti h and change event mai  file ka name aata h
-open.addEventListener("change", function () {  // downloaded file ko open karke read karta h 
-
-    // files ka array hota h..therefore we can accept multiple files 
-    let filesArray = open.files;//saari files mil gai
-
-    let fileObj = filesArray[0]; //first file choose karli
-    
-    let fr = new FileReader();// file reader to read the file
-   
-    fr.readAsText(fileObj); // read as text (async code)
-    fr.onload=function(){
-    console.log(fr.result);
-   }
+    fr.readAsText(fileObj); // Reads file content
     fr.addEventListener("load", function () {
-        console.log(fr.result);
-        
-    })
-    
-    console.log("After");
+      // Once loaded the content is put in the result attribute
+      sheetDB = JSON.parse(fr.result);
+      console.log(sheetDB);
 
-    // ui init karna padega ab
-})
+      for (let i = 0; i < rows; i++) {
+        // Set individual properties for each cell of a single sheet
+        for (let j = 0; j < cols; j++) {
+          let elem = document.querySelector(
+            `.grid .cell[rid='${i}'][cid='${j}']`
+          );
+          let value = sheetDB[i][j].value;
+          elem.innerText = value;
+        }
+      }
+    });
+  });
+});
+
+newFile.addEventListener("click", function () {
+  // New file
+  let NewDB = [];   //it is 2D array
+  for (let i = 0; i < rows; i++) {
+      let row = [];
+      for (let j = 0; j < cols; j++) {
+          let cell = {    //starting mai initial properties daal diye obj mai
+              bold: "normal",
+              italic: "normal",
+              underline: "none",
+              hAlign: "center",
+              fontFamily: "sans-serif",
+              fontSize: "16",
+              color: "black",
+              bColor: "none",
+              value:"",
+              formula:"",
+              children:[]
+          }
+          let elem = document.querySelector(`.grid .cell[rid='${i}'][cid='${j}']`);
+          elem.innerText = ""; //UI clear kardia kyuki nayi sheet banai h
+          row.push(cell);
+      }
+      NewDB.push(row);
+  }
+  sheetArray.push(NewDB);//3d array bann gya
+});
