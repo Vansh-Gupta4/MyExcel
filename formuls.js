@@ -68,7 +68,8 @@ for (let i = 0; i < allCells.length; i++) {  // to save the user entered "value"
     // till now=>[(,10,+,20,)]
     let evaluatedFormula = formulaTokens.join(" ");// ( 10 + 20 )
     
-    return eval(evaluatedFormula); //eval is function that solve all maths
+   //return eval(evaluatedFormula); //eval is function that solve all maths
+    return infixEvaluation(evaluatedFormula);  // Evaluate
  }
  function setCell(value, formula) {  //this func sets value in UI  and  sets value and formula in sheetDB
     let uicellElem = findUICellElement();
