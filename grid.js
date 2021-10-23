@@ -163,6 +163,16 @@ for (let i = 0; i < allCells.length; i++) {
 
     addressInput.value = address; //address input mai address chala gya
 
+    let selectedCells = document.querySelectorAll('.selected');
+    for (let selectedCell of selectedCells) {
+      selectedCell.classList.remove(
+        'selected',
+      );
+      selectedCell.setAttribute('readonly', true);
+    }
+    allCells[i].classList.add('selected');
+
+
     //3rd Lec code(yeh tab chalega jab jab humm kisi ek cell ko bold/italic/underline ki property de then menu container mai uss btn ka color change ho jaaye and fir hum dusre cell par click kare jis par voh property nhi lagi ,usse menu container mai uss btn ka color wapas normal ho jaaye )
     let cellObject = sheetDB[rid][cid];
     // toolbar cell sync
@@ -189,18 +199,18 @@ for (let i = 0; i < allCells.length; i++) {
     }
 
     if (cellObject.halign == "left") {
-        leftBtn.style.backgroundColor="rgb(113, 116, 118)";
+        leftBtn.style.backgroundColor="rgb(166 169 171)";
         rightBtn.style.backgroundColor="rgb(223, 230, 233)";
         centerBtn.style.backgroundColor="rgb(223, 230, 233)";
 
     } else if (cellObject.halign == "right") {
         leftBtn.style.backgroundColor="rgb(223, 230, 233)";
-        rightBtn.style.backgroundColor="rgb(113, 116, 118)";
+        rightBtn.style.backgroundColor="rgb(166 169 171)";
         centerBtn.style.backgroundColor="rgb(223, 230, 233)";
     } else if (cellObject.halign == "center") {
         leftBtn.style.backgroundColor="rgb(223, 230, 233)";
         rightBtn.style.backgroundColor="rgb(223, 230, 233)";
-        centerBtn.style.backgroundColor="rgb(113, 116, 118)";
+        centerBtn.style.backgroundColor="rgb(166 169 171)";
     }
     for (let i = 0; i < alignBtns.length; i++) {
         alignBtns[i].classList.remove("active-btn");
@@ -239,18 +249,18 @@ for (let i = 0; i < alignBtns.length; i++) {
     alignBtns[i].classList.add("active-btn"); //jis par click kiya voh active kar diya
 
     if (alignment == "left") {
-        leftBtn.style.backgroundColor="rgb(113, 116, 118)";
+        leftBtn.style.backgroundColor="rgb(166 169 171)";
         rightBtn.style.backgroundColor="rgb(223, 230, 233)";
         centerBtn.style.backgroundColor="rgb(223, 230, 233)";
 
     } else if (alignment == "right") {
         leftBtn.style.backgroundColor="rgb(223, 230, 233)";
-        rightBtn.style.backgroundColor="rgb(113, 116, 118)";
+        rightBtn.style.backgroundColor="rgb(166 169 171)";
         centerBtn.style.backgroundColor="rgb(223, 230, 233)";
     } else if (alignment == "center") {
         leftBtn.style.backgroundColor="rgb(223, 230, 233)";
         rightBtn.style.backgroundColor="rgb(223, 230, 233)";
-        centerBtn.style.backgroundColor="rgb(113, 116, 118)";
+        centerBtn.style.backgroundColor="rgb(166 169 171)";
     }
 
 

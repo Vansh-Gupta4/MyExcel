@@ -35,6 +35,11 @@ saveBtn.addEventListener("click", function () {
       break;
     }
   }
+  console.log(activeSheet);
+  if(title==null){
+    title=`Sheet${activeSheet}`;
+  }
+
   let jsonData = JSON.stringify(sheetDB);
   let file = new Blob([jsonData], { type: "application/json" }); // Convert to file like object
   let fileURL = URL.createObjectURL(file); // Convert to URL for anchor href

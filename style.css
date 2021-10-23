@@ -5,61 +5,75 @@ body {
    margin: 0px;
 }
 
+.header {
+   width: 100vw;
+   height: 1.5rem;
+   background-color: #176b2c;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .heading{
+    color: white;
+ 
+ }
 
 
 /********menu container********/
 .menu-container {
-   /* border: 1px solid red; */
-   height: 3rem;
-   background-color: lightpink;
-   align-items: center;
-   display: flex;
-   gap:0.5rem;   /*sab element ke beech mai space de dega*/
-   padding-left:0.5rem;
+  /* border: 1px solid red; */
+  height: 3rem;
+  background-color: white;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem; /*sab element ke beech mai space de dega*/
+  padding-left: 0.5rem;
 }
-.menu-container *{
-   border: 1px solid;
-   height:80%;
-   border-radius: 5px;
+.menu-container * {
+  /* border: 1px solid; */
+  height: 80%;
+  color:#176b2c;
+  border-radius: 5px;
 }
-.font-size{
-   width:5%;
+.font-size {
+  width: 5%;
+  height: 60%;
 }
-.font-family{
-   width:15%;
-   height: 80%;
-   border-radius: 5px;
+.font-family {
+  width: 15%;
+  height: 60%;
+  border-radius: 5px;
 }
-.bui-container{
-   height: 80%;
-   min-width: 10rem;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
+.bui-container {
+  height: 80%;
+  min-width: 10rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
-.bui-container>* {
-   width: 30%;
-   height: 80%;
-   border-radius: 3px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: rgb(223, 230, 233);
+.bui-container > * {
+  width: 30%;
+  height: 80%;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(223, 230, 233);
 }
-.align-container{
-   display: flex;
-   justify-content: space-around;
-   height: 80%;
-   min-width: 10rem;
-   align-items: center;
+.align-container {
+  display: flex;
+  justify-content: space-around;
+  height: 80%;
+  min-width: 9rem;
+  align-items: center;
 }
 
-.color-container{
-   height: 80%;
-   min-width: 7.5rem;
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
+.color-container {
+  height: 80%;
+  min-width: 7.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .color-container > i {
    position: relative;
@@ -71,7 +85,6 @@ body {
    justify-content: center;
    align-items: center;
    background-color: rgb(223, 230, 233);
-   border-radius: 3px;
 }
 .color-container > i:hover {
    background-color: rgb(178, 190, 195);
@@ -87,21 +100,29 @@ body {
 
 /*************formula container************/
 .formula-container {
-   /* border: 1px solid red; */
-   height: 2rem;
-   /* background-color: lightcoral; */
-   display: flex;
-   align-items: center;
-   justify-content: space-around;
+  /* border: 1px solid red; */
+  height: 2rem;
+  /* background-color: lightcoral; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.formula-container>*{  /*formula-container ke andar jo bhi h sab ke liye*/
-   height: 70%;
+.formula-container > * {
+  /*formula-container ke andar jo bhi h sab ke liye*/
+  height: 70%;
 }
-.address-input{
-   width:4rem;
-   }
-.formula-input{
-    width:calc(100vw - 6rem);
+.address-input {
+  width: 4rem;
+}
+.formula-input {
+  width: calc(100vw - 8rem);
+}
+.formula_sign{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 10px; */
+    flex: 0.005;
 }
 
 
@@ -113,19 +134,19 @@ body {
 /* ****************grid ****************/
 
 
-.left-box{
-   background-color:gray;
+.left-box {
+   background-color: rgb(178, 190, 195);
    height: 30px;
    width: 25px;
    position: absolute;
-   top:0px;
-   left:0px;
-   z-index:100;
-}
+   top: 0px;
+   left: 0px;
+   z-index: 100;
+ }
 .top-row{
-   height:2rem;
-  background-color:lightgreen;
-  display:flex;
+   height: 1.5rem;
+  background-color: #dedede;
+  display: flex;
   position: absolute;
   top: 0px;
   left: 32px;
@@ -134,45 +155,45 @@ body {
 .row{
    display: flex;
 }
-.cell{
-   border: 1px solid;
-   max-width: 5rem;
-   width: 5rem;
+.cell {
+   border: 0.001px solid #aaa3a3 !important;
+   /* max-width: 5rem; */
+   width: 6rem;
    text-align: center;
-   height:2rem;
+   height: 1.5rem;
    overflow: hidden;
-}
+ }
 .left-col {
    width: 32px;
-   position: absolute;
-   top:32px;
-   left:0px;
-   z-index:90;
+  position: absolute;
+  top: 1.5rem;
+  left: 0px;
+  z-index: 90;
 }
 .left-col_box {
-   height: 32px;
-   background-color: lightgreen;
+   height: 1.5rem;
+   background-color: #dedede;
    text-align: center;
-   border: 1px solid;
+   border: 0.001px solid #aaa3a3 !important;
 }
 
 
 .grid-container {
 
-   border: 1px solid red;
-   height: 
-   calc( 100vh - ( 3rem + 2rem + 2rem));    /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi height dedi*/
-   /* background-color: lightgreen; */
-   overflow: auto;
-   position: relative;    /*TRICK==humme top-row ki position absolute grid-container ke hisaab se deni thi toh grid container ko relative dedo and top row ko absolute*/
-
-}
-.grid{
-   position: absolute;
-   left: 2rem;
-   top: 2rem;
-   background-color: white;
-}
+   /* border: 1px solid red; */
+   height: calc(
+      100vh - (3rem + 3.5rem + 1.5rem)
+    ); /*agar tab chota kare toh bas grid choti badi honi chaiye ...therefore baaki ko constant height dedi and grid ko bachi buchi height dedi*/
+    /* background-color: lightgreen; */
+    overflow: auto;
+    position: relative; /*TRICK==humme top-row ki position absolute grid-container ke hisaab se deni thi toh grid container ko relative dedo and top row ko absolute*/
+  }
+  .grid {
+    position: absolute;
+    left: 2rem;
+    top: 1.5rem;
+    background-color: white;
+  }
 
 
 
@@ -180,58 +201,79 @@ body {
 
 /* /////////////////sheets/////////////////////// */
 .sheets-container {
-   /* border: 1px solid red; */
-   background-color: lightblue;
-   height: 2rem;
-   display: flex;
+  /* border: 1px solid red; */
+  background-color: #dedede;
+  height: 1.5rem;
+  display: flex;
 }
-.add-sheet_btn-container{
-   width: 3rem;
-   border: 1px solid;
-   height: 100%;
-   padding-top: 0.2rem;
-   padding-left: 0.3rem;
+.add-sheet_btn-container {
+  width: 3.6rem;
+  /* border: 1px solid; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* padding-top: 0.1rem; */
+  /* padding-right: 0.3rem; */
 }
-.sheet-list{
-   width: calc(100vw - 3rem);  
-   border: 1px solid;
-   display: flex;
-   overflow: auto;
+.sheet-list {
+  width: calc(100vw - 3rem);
+  /* border: 1px solid; */
+  display: flex;
+  overflow: auto;
+}
+.icon-circle {
+  stroke: #176b2c;
+  fill: #ededed;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.icon-circle:hover {
+  stroke: #777;
 }
 
+::-webkit-scrollbar {
+   width: 10px;
+   height: 10px;
+}
 
-/* Hide scrollbar for  */
-.sheet-list::-webkit-scrollbar {
-   display: none;
- }
- .sheet-list {
-   -ms-overflow-style: none;  /* IE and Edge */
-   scrollbar-width: none;  /* Firefox */
- }
+::-webkit-scrollbar-track {
+   background-color: rgb(223, 230, 233);
 
-.sheet{
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: rgb(178, 190, 195);
+   border-radius: 1rem;
+}
+
+.sheet {
    min-width: 5rem;
-   border: 1px solid blue;
+   border: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    height: 100%;
-  background-color: grey;
-}
-.active{
-   background-color:white;
-}
+   background-color: #dedede;
+ }
+ .active {
+   background-color: white;
+   border-bottom: 3px solid #176b2c;
+ }
 
 
 
 
-
-.box{
-   height: 2rem;
-   width:2rem;
-   border:1px solid;
+ .box {
+   height: 1.5rem;
+   width: 2rem;
+   border: 0.001px solid #aaa3a3 !important;
    text-align: center;
-}
-.active-btn{
-   background-color:rgb(140, 108, 108);
-}
+ }
+ .active-btn {
+   background-color: rgb(166 169 171);
+ }
 
 
 /* new open save */
@@ -318,4 +360,8 @@ body {
    background-color: rgba(0, 0, 0, 0.5);
    z-index: 100;
    display: none;
+}
+.selected {
+   border: 2px solid #176b2c !important;
+   border-radius: 0px;
 }
