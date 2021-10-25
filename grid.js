@@ -277,7 +277,12 @@ fontSizeElem.addEventListener("change", function () {
   //agar hum font size change karenge toh yeh chalega
   let val = fontSizeElem.value;
   let uiCellElement = findUICellElement();
+  let cid = uiCellElement.getAttribute("cid");
+  let rid = uiCellElement.getAttribute("rid");
+  let cellObject = sheetDB[rid][cid];
   uiCellElement.style.fontSize = val + "px";
+
+  cellObject.fontSize=val +"px";
 });
 
 fontFamily.addEventListener("change", function () {
