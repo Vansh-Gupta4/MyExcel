@@ -364,5 +364,6 @@ body {
 }
 .selected {
    border: 2px solid #176b2c !important;
-   border-radius: 0px !important;
+   outline:none;
+   /* background-color:red; */
 }

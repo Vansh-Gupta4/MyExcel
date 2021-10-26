@@ -80,6 +80,16 @@ openFile.addEventListener("click", function () {
           );
           let value = sheetDB[i][j].value;
           elem.innerText = value;
+          let cellProp = sheetDB[i][j];
+          elem.style.textDecoration = cellProp.underline;
+          elem.style.fontWeight=cellProp.bold;
+          elem.style.fontStyle = cellProp.italic; 
+          elem.style.textDecoration = cellProp.underline;
+          elem.style.fontSize = cellProp.fontSize;
+          elem.style.fontFamily = cellProp.fontFamily;
+          elem.style.color = cellProp.color;
+          elem.style.backgroundColor=cellProp.bColor;
+          elem.style.textAlign = cellProp.halign;
         }
       }
     });

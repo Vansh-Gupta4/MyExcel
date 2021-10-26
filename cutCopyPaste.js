@@ -34,7 +34,8 @@ function handleSelectedCells(cell) {
         }
 
         // UI
-        cell.style.backgroundColor = "#176b2c";
+        cell.style.outline = "dashed 1px solid black";
+        cell.style.outlineStyle= "dashed";
         console.log(cell.style);
 
         let rid = Number(cell.getAttribute("rid"));
@@ -47,7 +48,7 @@ function handleSelectedCells(cell) {
 function defaultSelectedCellsUI() {      //sirf 2 cell select hoye
     for (let i = 0;i < rangeStorage.length;i++) {
         let cell = document.querySelector(`.cell[rid="${rangeStorage[i][0]}"][cid="${rangeStorage[i][1]}"]`);
-        cell.style.backgroundColor = "white";  //pichle 2 selected cell ko ui par normal kardia
+        cell.style.outline = "0px";  //pichle 2 selected cell ko ui par normal kardia
     }
 }
 
@@ -96,7 +97,7 @@ copyBtn.addEventListener("click", (e) => {
         copyData.push(copyRow);
       }
       // console.log(copyData);
-
+      console.log("*********************",copyData);
     defaultSelectedCellsUI();
 })
 
@@ -147,7 +148,7 @@ console.log(stRow,stCol);
             cellProp.color = data.color;
             cellProp.bColor = data.bColor;
             cellProp.halign = data.halign;
-
+            console.log("##################",cellProp.backgroundColor,data.bColor)
             // UI
             cell.click();
         }

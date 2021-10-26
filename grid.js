@@ -85,14 +85,14 @@ btnContainer.addEventListener("click", function () {
 
   createSheet();
   sheetDB = sheetArray[Lastidx + 1]; //sheet array ke last mai attach kardo 2d array
-  setUI();
+  setUI(Lastidx+1);
 
   Newsheet.addEventListener("click", makeMeActive); //isse saari newsheets par event listener add ho gya par 1st newsheet nhi h ...therefore humne specifically 1st sheet par event listener laga diya
 });
 
 function makeMeActive(e) {
   //jis sheet par click kiya voh active ho jaaye
-
+  console.log("*********ACTIVE************")
   let sheet = e.currentTarget; // jis par evnt listener add hota h uss par currenttarget hota h
   let AllSheets = document.querySelectorAll(".sheet");
   for (let i = 0; i < AllSheets.length; i++) {
@@ -106,7 +106,7 @@ function makeMeActive(e) {
     createSheet();
   }
   sheetDB = sheetArray[idx]; //agar sheet bani hui h uss idx ki toh voh sheet khol do
-  setUI();
+  setUI(idx);
 }
 
 function createSheet() {
@@ -130,6 +130,7 @@ function createSheet() {
       };
       let elem = document.querySelector(`.grid .cell[rid='${i}'][cid='${j}']`);
       elem.innerText = ""; //UI clear kardia kyuki nayi sheet banai h
+      elem.style = "";
       row.push(cell);
     }
     NewDB.push(row);
@@ -137,13 +138,25 @@ function createSheet() {
   sheetArray.push(NewDB); //3d array bann gya
 }
 
-function setUI() {
+function setUI(idx) {
   console.log(sheetDB);
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       let elem = document.querySelector(`.grid .cell[rid='${i}'][cid='${j}']`);
+      elem.style="";
       let value = sheetDB[i][j].value;
       elem.innerText = value;
+      let cellProp = sheetDB[i][j];
+      // console.log("idx=> ",idx, "==> ",cellProp);
+      elem.style.textDecoration = cellProp.underline;
+      elem.style.fontWeight=cellProp.bold;
+      elem.style.fontStyle = cellProp.italic; 
+      elem.style.textDecoration = cellProp.underline;
+      elem.style.fontSize = cellProp.fontSize;
+      elem.style.fontFamily = cellProp.fontFamily;
+      elem.style.color = cellProp.color;
+      elem.style.backgroundColor=cellProp.bColor;
+      elem.style.textAlign = cellProp.halign;
     }
   }
 }
@@ -165,10 +178,8 @@ for (let i = 0; i < allCells.length; i++) {
 
     let selectedCells = document.querySelectorAll('.selected');
     for (let selectedCell of selectedCells) {
-      selectedCell.classList.remove(
-        'selected',
-      );
-      selectedCell.setAttribute('readonly', true);
+      selectedCell.classList.remove("selected");
+      selectedCell.setAttribute("readonly", true);
     }
     allCells[i].classList.add('selected');
 
@@ -199,9 +210,9 @@ for (let i = 0; i < allCells.length; i++) {
     }
 
     if (cellObject.halign == "left") {
-        leftBtn.style.backgroundColor="rgb(166 169 171)";
-        rightBtn.style.backgroundColor="rgb(223, 230, 233)";
-        centerBtn.style.backgroundColor="rgb(223, 230, 233)";
+      leftBtn.style.backgroundColor = "rgb(166 169 171)";
+      rightBtn.style.backgroundColor = "rgb(223, 230, 233)";
+      centerBtn.style.backgroundColor = "rgb(223, 230, 233)";
 
     } else if (cellObject.halign == "right") {
         leftBtn.style.backgroundColor="rgb(223, 230, 233)";
