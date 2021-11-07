@@ -155,3 +155,39 @@ console.log(stRow,stCol);
     }
 })
 
+
+cutBtn.addEventListener("click", (e) => {
+    // console.log("inside ------------------------------------------------------------------");
+    if (rangeStorage.length < 2){
+        return;
+    } 
+
+    let [strow, stcol, endrow, endcol] = [ rangeStorage[0][0], rangeStorage[0][1], rangeStorage[1][0], rangeStorage[1][1] ];
+
+    for (let i = strow;i <= endrow;i++) {
+        for (let j = stcol;j <= endcol;j++) {
+            let cell = document.querySelector(`.cell[rid="${i}"][cid="${j}"]`);
+
+            // DB
+            let cellProp = sheetDB[i][j];
+            console.log(cellProp);
+            cellProp.value = "";
+            cellProp.bold = "normal";
+            cellProp.italic = "normal";
+            cellProp.underline = "none";
+            cellProp.fontSize = "16";
+            cellProp.fontFamily = "sans-serif";
+            cellProp.color = "black";
+            cellProp.bColor = "none";
+            cellProp.halign = "center";
+            
+
+            // UI
+            cell.click();
+            cell.style=""
+        }
+    }
+
+    defaultSelectedCellsUI();
+})
+
