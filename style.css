@@ -35,14 +35,35 @@ body {
   color:#176b2c;
   border-radius: 5px;
 }
+.cutcopypaste {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 8%;
+ }
+@media only screen and (max-width:700px) {
+  .cutcopypaste {
+   display:none;
+  }
+}
 .font-size {
   width: 5%;
   height: 60%;
+}
+@media only screen and (max-width: 850px) {
+  .font-size {
+   display:none;
+  }
 }
 .font-family {
   width: 15%;
   height: 60%;
   border-radius: 5px;
+}
+@media only screen and (max-width: 850px) {
+  .font-family {
+   display:none;
+  }
 }
 .bui-container {
   height: 80%;
@@ -74,6 +95,11 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@media only screen and (max-width: 450px) {
+  .color-container {
+   display:none;
+  }
 }
 .color-container > i {
    position: relative;
@@ -285,6 +311,11 @@ body {
    display: flex;
    justify-content: space-around;
    align-items: center;
+}
+@media only screen and (max-width: 580px) {
+  .nos-container {
+   display:none;
+  }
 }
 
 .nos-container > * {
